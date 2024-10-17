@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Profesjonalne usługi dojenia krów, oporządku stada mlecznego i przygotowania paszy. SebMilk - Twój zaufany partner w gospodarstwie.">
+    <meta name="keywords" content="dojenie krów, mobilny udój, oporządzenie stada, przygotowanie paszy, usługi mleczne, SebMilk">
+    <meta name="author" content="SebMilk">
+    <title>SebMilk - Dojenie krów i oporządzenie stada mlecznego</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        /* Kolory i typografia */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        /* Nawigacja */
+        .navbar {
+            background-color: #0d0d0d;
+            padding: 1rem;
+        }
+
+        .custom-toggler.navbar-toggler {
+            border-color: #ffcc00;
+        }
+
+        .custom-toggler .navbar-toggler-icon {
+            background-image: url("toggle.svg");
+        }
+
+        .navbar-brand {
+            color: #ffcc00;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .navbar-brand:hover {
+            font-weight: bold;
+            color: #ffcc00;
+            transform: scale(1.1);
+            transition: ease 0.5s;
+        }
+
+        .navbar-nav .nav-link {
+            color: #f0f0f0;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffcc00;
+        }
+
+        /* Pełnoekranowe sekcje */
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 0;
+        }
+
+        header {
+            padding: 50px 15px; /* Odstępy */
+        }
+
+        .hero {
+            min-height: 400px; /* Minimalna wysokość sekcji */
+        }
+
+        .hero-text {
+            flex: 1; /* Wypełnia dostępną przestrzeń */
+            padding: 20px;
+        }
+
+        .hero-text a {
+            background-color: #ffcc00;
+        }
+
+        .hero-text a:hover {
+            text-decoration: none;
+            transform: scale(1.1);
+            transition: ease 0.5s;
+            background-color: #ffcc00;
+            color: #0d0d0d;
+        }
+
+        .hero-image {
+            flex: 1; /* Wypełnia dostępną przestrzeń */
+            display: flex; /* Umożliwia centrowanie obrazu */
+            justify-content: center; /* Centrowanie w poziomie */
+            align-items: center; /* Centrowanie w pionie */
+            padding: 20px;
+        }
+
+        .hero-image img {
+            max-width: 100%; /* Responsywność obrazu */
+            height: auto; /* Proporcjonalne skalowanie */
+            box-shadow: #f0f0f0 0 5px 15px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem; /* Rozmiar nagłówka */
+            margin-bottom: 20px;
+        }
+
+        .hero-description h3 {
+            margin: 25px 0;
+        }
+
+        .hero-description p {
+            margin: 30px 0;
+        }
+
+        .hero-description h5 {
+            margin: 10px 0; /* Odstępy między elementami */
+        }
+
+        .btn {
+            margin-top: 20px; /* Odstęp nad przyciskiem */
+        }
+
+
+        /* Animacje dla Hero */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Oferta */
+        #offer {
+            background-color: #222;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.8rem;
+            color: #ffcc00;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .offer-card {
+            background-color: #333;
+            border: none;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            justify-content: flex-start;
+            color: #f0f0f0;
+        }
+
+        .offer-card i {
+            font-size: 3rem;
+            color: #ffcc00;
+            margin-bottom: 1rem;
+        }
+
+        .offer-card h5 {
+            margin-top: 1rem;
+            font-size: 1.6rem;
+            color: #ffcc00;
+        }
+
+        .offer-card p {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .hero-description {
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            text-align: start;
+        }
+
+        /* Opinie */
+        #reviews {
+            background-color: #333;
+        }
+
+        .review {
+            background-color: #444;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .review:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Sekcja kontaktowa */
+        #contact {
+            background-color: #ffcc00;
+            color: #222;
+            padding: 4rem 0;
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-method {
+            background-color: #333;
+            color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+            margin: 1rem;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-method img {
+            max-width: 80px;
+            margin-bottom: 1rem;
+        }
+
+        .contact-method p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-method a {
+            text-decoration: none;
+            color: #ffcc00;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .contact-method:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0d0d0d;
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .hero-description li {
+            list-style-image: url("marker.svg");
+        }
+
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="#" style="align-items: center; display: flex">
+            <img src="logo.png" alt="logo" width="50" style="margin-right: 5px">
+            SebMilk
+        </a>
+        <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#offer">Oferta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#reviews">Opinie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Kontakt</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<header>
+    <h2 style="text-align: center; color: #ffcc00">Profesjonalne usługi udoju mobilnego <br> oraz kompleksowej opieki stada</h2>
+    <div class="hero d-flex flex-column flex-md-row align-items-start">
+        <div class="hero-text text-center text-md-left">
+            <div class="hero-description">
+                <h3>Rolnik też ma prawo wziąć wolne!</h3>
+                <ul>
+                    <li>Masz wesele?</li>
+                    <li>Chcesz jechać na wakacje?</li>
+                    <li>Wydarzyła się sytuacja losowa?</li>
+                    <li>Zachorowałaś/Zachorowałeś?</li>
+                    <li>Potrzebujesz pomocy?</li>
+                </ul>
+                <p>Bez obaw, jesteśmy w stanie Ci pomóc, skontaktuj się z nami i zapytaj o szczegóły</p>
+            </div>
+            <a href="#contact" class="btn">Skontaktuj się z nami</a>
+        </div>
+        <div class="hero-image">
+            <img src="hero.jpg" alt="Usługi SebMilk" class="img-fluid" />
+        </div>
+    </div>
+</header>
+
+
+<!-- Oferta -->
+<section id="offer">
+    <div class="container">
+        <h2 class="section-title">Nasza Oferta</h2>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <div class="offer-card">
+                    <i class="bi bi-droplet"></i>
+                    <h5>Dojenie krów</h5>
+                    <p class="offer-description">Mobilny udój polega na dojeniu krów w ich naturalnym środowisku, co minimalizuje stres zwierząt i zapewnia komfortowy proces. Zostaw obowiązek dojenia w dobrych rękach.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="offer-card">
+                    <i class="bi bi-piggy-bank"></i>
+                    <h5>Kompleksowa opieka stada</h5>
+                    <p class="offer-description">Kompleksowa opieka nad stadem polega na dbaniu o czystość obory i sprzętu oraz ogólne przygotowanie zwierząt do udoju.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="offer-card">
+                    <i class="bi bi-card-list"></i>
+                    <h5>Przygotowanie paszy</h5>
+                    <p class="offer-description">Usługa ta obejmuje zapewnienia pożywienia wszystkim zwierzętom według ustaleń właściciela przez wskazany okres.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Opinie -->
+<section id="reviews">
+    <div class="container">
+        <h2 class="section-title">Opinie</h2>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="review">
+                    <p><strong>Paweł</strong></p>
+                    <p>"Profesjonalna pomoc podczas nieobecności. Zwierzęta zadbane, mleko w odpowiednich parametrach."</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="review">
+                    <p><strong>Joanna</strong></p>
+                    <p>"Polecam usługi Sebastiana. Doskonale wydoił wszystkie krowy, po powrocie z wesela mogłem spokojnie iść spać, ponieważ zadbał kompleksowo o wszystko."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Kontakt -->
+<section id="contact">
+    <div class="container">
+        <h2 class="section-title" style="color: #333">Skontaktuj się z nami</h2>
+        <div class="contact-container">
+            <div class="contact-method">
+                <img src="mail.png" alt="Ikona Email">
+                <p>Email</p>
+                <a href="mailto:sebmilk2024@gmail.com">sebmilk2024@gmail.com</a>
+            </div>
+            <div class="contact-method">
+                <img src="phone1.png" alt="Ikona Telefon">
+                <p>Telefon</p>
+                <a href="tel:+48516426557">+48 516 426 557</a>
+            </div>
+            <div class="contact-method">
+                <img src="fb.png" alt="Ikona Facebook">
+                <p>Facebook</p>
+                <a href="https://facebook.com" target="_blank">facebook.com</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 SebMilk. Wszelkie prawa zastrzeżone. <a href="#">Polityka prywatności</a></p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
